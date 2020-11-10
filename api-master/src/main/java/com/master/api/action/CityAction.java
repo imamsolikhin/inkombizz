@@ -5,8 +5,13 @@
  */
 package com.master.api.action;
 
-import java.text.DecimalFormat;
-import org.springframework.http.HttpStatus;
+import com.master.api.dao.CityDao;
+import com.master.api.model.City;
+import com.master.api.setting.ResourceNotFoundException;
+import java.util.List;
+import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +19,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -22,40 +26,47 @@ import org.springframework.web.bind.annotation.RestController;
  * @author de4ragil
  */
 @RestController
-@RequestMapping("/city")
+@RequestMapping("/master")
 public class CityAction {
 
-    @GetMapping(value = "/generade/{id}")
-    public String getGeneradeCode(@PathVariable("id") Long id) {
-        DecimalFormat df = new DecimalFormat("0000");
-        return df.format(id);
+    @Autowired
+    CityDao cityDao;
+
+    @GetMapping("/city")
+    public List<City> getAllCitys() {
+        return cityDao.findAll();
     }
 
-    @GetMapping
-    public String findAll() {
-        return "All Data Success";
-    }
-    
-    @GetMapping(value = "/{id}")
-    public String findById(@PathVariable("id") String id) {
-        return "One Data Success";
+    @PostMapping("/city")
+    public City createCity(@Valid @RequestBody City city) {
+        return cityDao.save(city);
     }
 
-    @PostMapping()
-    @ResponseStatus(HttpStatus.CREATED)
-    public String create(@RequestBody String resource) {
-        return "Save Success";
+    @GetMapping("/city/{id}")
+    public City getCityById(@PathVariable(value = "id") Long cityId) {
+        return cityDao.findById(cityId)
+                .orElseThrow(() -> new ResourceNotFoundException("City", "id", cityId));
     }
 
-    @PutMapping(value = "/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public String update(@PathVariable("id") Long id, @RequestBody String resource) {
-        return "Update Success";
+    @PutMapping("/city/{id}")
+    public City updateCity(@PathVariable(value = "id") Long cityId,
+                                           @Valid @RequestBody City cityDetails) {
+
+        City city = cityDao.findById(cityId)
+                .orElseThrow(() -> new ResourceNotFoundException("City", "Code", cityId));
+
+        city.setName(cityDetails.getName());
+        City updatedCity = cityDao.save(city);
+        return updatedCity;
     }
 
-    @DeleteMapping(value = "/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public String delete(@PathVariable("id") String id) {
-        return "Delete Success";
+    @DeleteMapping("/city/{id}")
+    public ResponseEntity<?> deleteCity(@PathVariable(value = "id") Long cityId) {
+        City city = cityDao.findById(cityId)
+                .orElseThrow(() -> new ResourceNotFoundException("City", "id", cityId));
+
+        cityDao.delete(city);
+
+        return ResponseEntity.ok().build();
     }
 }
