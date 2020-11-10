@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.master.api.controllers;
+package com.master.api.action;
 
 import java.text.DecimalFormat;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/city")
-public class CityController {
+public class CityAction {
 
     @GetMapping(value = "/generade/{id}")
     public String getGeneradeCode(@PathVariable("id") Long id) {
