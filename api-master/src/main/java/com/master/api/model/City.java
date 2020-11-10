@@ -31,7 +31,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Table(name = "mst_city")
-@JsonIgnoreProperties(value = {"createdDate", "updatedDate"}, allowGetters = true)
+//@JsonIgnoreProperties(value = {"createdDate", "updatedDate"}, allowGetters = true)
 public class City {
     
     @Id
@@ -43,21 +43,21 @@ public class City {
     @Column(name = "Name")
     private String name;
 
-    @NotBlank
-    @Column(name = "CreatedBy")
-    private String createdBy;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
-    @Column(name = "CreatedDate")
-    private Date createdDate;
-
-    @NotBlank
-    @Column(name = "UpdatedBy")
-    private String updatedBy;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate
-    @Column(name = "UpdatedDate")
-    private Date updatedDate;
+//    @NotBlank
+//    @Column(name = "CreatedBy")
+//    private String createdBy;
+//
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @CreatedDate
+//    @Column(name = "CreatedDate")
+//    private Date createdDate;
+//
+//    @NotBlank
+//    @Column(name = "UpdatedBy")
+//    private String updatedBy;
+//
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @LastModifiedDate
+//    @Column(name = "UpdatedDate")
+//    private Date updatedDate;
 }

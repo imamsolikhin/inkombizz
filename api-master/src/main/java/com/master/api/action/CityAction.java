@@ -33,24 +33,24 @@ public class CityAction {
     CityDao cityDao;
 
     @GetMapping("/city")
-    public List<City> getAllCitys() {
+    public List<City> alldata() {
         return cityDao.findAll();
     }
 
     @PostMapping("/city")
-    public City createCity(@Valid @RequestBody City city) {
+    public City create(@Valid @RequestBody City city) {
         return cityDao.save(city);
     }
 
     @GetMapping("/city/{id}")
-    public City getCityById(@PathVariable(value = "id") Long cityId) {
+    public City data(@PathVariable(value = "id") Long cityId) {
         return cityDao.findById(cityId)
-                .orElseThrow(() -> new ResourceNotFoundException("City", "id", cityId));
+                .orElseThrow(() -> new ResourceNotFoundException("City", "code", cityId));
     }
 
     @PutMapping("/city/{id}")
-    public City updateCity(@PathVariable(value = "id") Long cityId,
-                                           @Valid @RequestBody City cityDetails) {
+    public City update(@PathVariable(value = "id") Long cityId,
+            @Valid @RequestBody City cityDetails) {
 
         City city = cityDao.findById(cityId)
                 .orElseThrow(() -> new ResourceNotFoundException("City", "Code", cityId));
@@ -61,7 +61,7 @@ public class CityAction {
     }
 
     @DeleteMapping("/city/{id}")
-    public ResponseEntity<?> deleteCity(@PathVariable(value = "id") Long cityId) {
+    public ResponseEntity<?> delete(@PathVariable(value = "id") Long cityId) {
         City city = cityDao.findById(cityId)
                 .orElseThrow(() -> new ResourceNotFoundException("City", "id", cityId));
 
