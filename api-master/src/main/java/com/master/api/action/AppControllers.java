@@ -1,4 +1,4 @@
-package com.master.api.action.v1;
+package com.master.api.action;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +12,7 @@ public class AppControllers {
 	
 	@GetMapping("/{page}")
 	public String page(@PathVariable String page ) {
-		return "<h1>You in v1 Page </h1> <h1>"+page+"</h1> ";
+		return "<h1>You in v1 Pge </h1> <h1>"+page+"</h1> ";
 	}
 	
 	@GetMapping("/{page}/{fn}")
