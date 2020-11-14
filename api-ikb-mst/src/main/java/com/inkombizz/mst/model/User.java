@@ -1,4 +1,4 @@
-package com.master.api.model;
+package com.inkombizz.mst.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

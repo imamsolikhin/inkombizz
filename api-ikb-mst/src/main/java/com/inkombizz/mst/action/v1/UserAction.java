@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.master.api.action.v1;
+package com.inkombizz.mst.action.v1;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.master.api.dao.UserDao;
-import com.master.api.model.User;
-import com.master.api.utils.Response;
+import com.inkombizz.mst.dao.UserDao;
+import com.inkombizz.mst.model.User;
+import com.inkombizz.mst.utils.Response;
 
 /**
  *

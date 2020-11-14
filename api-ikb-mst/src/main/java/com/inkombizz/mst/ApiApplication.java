@@ -1,5 +1,5 @@
 
-package com.master.api;
+package com.inkombizz.mst;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

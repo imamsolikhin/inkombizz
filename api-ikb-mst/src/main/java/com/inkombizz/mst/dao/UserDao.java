@@ -1,9 +1,9 @@
-package com.master.api.dao;
+package com.inkombizz.mst.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.master.api.model.User;
+import com.inkombizz.mst.model.User;
 
 /**
  *
