@@ -22,7 +22,7 @@ import lombok.Setter;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Table(name = "scr_user")
-public class User {
+public class UserModel {
     
     @Id
     @GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)

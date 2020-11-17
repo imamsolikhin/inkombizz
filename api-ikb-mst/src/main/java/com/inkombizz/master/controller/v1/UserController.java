@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inkombizz.master.model.User;
-import com.inkombizz.master.repository.UserDao;
+import com.inkombizz.master.model.UserModel;
+import com.inkombizz.master.repository.UserRepository;
 import com.inkombizz.master.util.Response;
 
 /**
@@ -28,10 +28,10 @@ import com.inkombizz.master.util.Response;
  */
 @RestController
 @RequestMapping("v1/user")
-public class UserAction {
+public class UserController {
 
     @Autowired
-    UserDao userDao;
+    UserRepository userDao;
 
     @GetMapping("/")
     public ResponseEntity<?> alldata() {
@@ -43,7 +43,7 @@ public class UserAction {
     }
 
     @PostMapping("/")
-    public ResponseEntity<?> create(@RequestBody User model) {
+    public ResponseEntity<?> create(@RequestBody UserModel model) {
     	try {
     		userDao.save(model);	
             return new Response().response_json(true,"Save Success",model,HttpStatus.OK);
@@ -53,7 +53,7 @@ public class UserAction {
     }
 
     @PutMapping("/{code}")
-    public ResponseEntity<?> update(@RequestBody User model,@PathVariable String code) {
+    public ResponseEntity<?> update(@RequestBody UserModel model,@PathVariable String code) {
     	try {
     		userDao.save(model);	
             return new Response().response_json(true,"Save Success",model,HttpStatus.OK);
