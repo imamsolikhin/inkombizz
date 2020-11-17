@@ -27,7 +27,7 @@ import com.inkombizz.mst.utils.Response;
  * @author de4ragil
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("v1/user")
 public class UserAction {
 
     @Autowired
