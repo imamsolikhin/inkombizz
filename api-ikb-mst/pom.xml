@@ -9,10 +9,10 @@
 		<version>2.3.5.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.master.api</groupId>
+	<groupId>com.inkombizz.master</groupId>
 	<artifactId>demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>api-master</name>
+	<name>api-inkombizz-master</name>
 	<description>Api Master project for Spring Boot</description>
 
 	<properties>

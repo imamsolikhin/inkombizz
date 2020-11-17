@@ -1,4 +1,4 @@
-package com.inkombizz.mst.action;
+package com.inkombizz.master.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

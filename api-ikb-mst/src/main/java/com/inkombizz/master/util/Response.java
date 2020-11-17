@@ -1,4 +1,4 @@
-package com.inkombizz.mst.utils;
+package com.inkombizz.master.util;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
