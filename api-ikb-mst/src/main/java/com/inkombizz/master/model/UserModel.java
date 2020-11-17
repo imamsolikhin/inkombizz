@@ -41,5 +41,9 @@ public class UserModel {
     @Column(name = "Email")
     private String email;
 
+    @NotBlank
+    @Column(name = "RoleCode")
+    private String roleCode;
+
 
 }
