@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.master.api.action;
+package com.master.api.controller;
 
-import com.master.api.dao.CityDao;
+import com.master.api.repository.CityDao;
 import com.master.api.model.City;
 import com.master.api.setting.ResourceNotFoundException;
 import java.util.List;

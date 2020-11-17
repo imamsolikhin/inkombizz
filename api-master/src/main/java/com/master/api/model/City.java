@@ -39,25 +39,25 @@ public class City {
     @Column(name = "Code")
     private String code;
 
-    @NotBlank
+//    @NotBlank
     @Column(name = "Name")
     private String name;
 
-//    @NotBlank
-//    @Column(name = "CreatedBy")
-//    private String createdBy;
-//
-//    @Temporal(TemporalType.TIMESTAMP)
-//    @CreatedDate
-//    @Column(name = "CreatedDate")
-//    private Date createdDate;
-//
-//    @NotBlank
-//    @Column(name = "UpdatedBy")
-//    private String updatedBy;
-//
-//    @Temporal(TemporalType.TIMESTAMP)
-//    @LastModifiedDate
-//    @Column(name = "UpdatedDate")
-//    private Date updatedDate;
+    @NotBlank
+    @Column(name = "CreatedBy")
+    private String createdBy;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreatedDate
+    @Column(name = "CreatedDate")
+    private Date createdDate;
+
+    @NotBlank
+    @Column(name = "UpdatedBy")
+    private String updatedBy;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @LastModifiedDate
+    @Column(name = "UpdatedDate")
+    private Date updatedDate;
 }
