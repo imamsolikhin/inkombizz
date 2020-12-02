@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.inkombizz.master</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>api-inkombizz-security</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>api-inkombizz-master</name>
+	<name>api-inkombizz-security</name>
 	<description>Api Master project for Spring Boot</description>
 
 	<properties>
@@ -52,7 +52,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -66,6 +65,12 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.3.6.Final</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.3.9</version>
 			<type>jar</type>
 		</dependency>
 	</dependencies>

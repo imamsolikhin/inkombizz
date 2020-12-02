@@ -8,8 +8,6 @@ import javax.persistence.EntityListeners;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -19,8 +17,6 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.annotation.CreatedDate;
@@ -29,6 +25,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.inkombizz.master.util.StatusEnum;
+import com.sun.istack.NotNull;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -41,34 +38,18 @@ import lombok.Setter;
 @Setter
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "scr_user")
-public class UserModel {
+@Table(name = "scr_role")
+public class RoleModel {
     
     @Id
     @Column(name = "Code")
     private String code;
-
-    @NotBlank(message = "Username Not Null")
-    @Size(max=20,min=5)
-    @Column(name = "Username")
-    private String username;
-
-//    @JsonIgnore
-    @NotBlank(message = "Password Not Null")
-    @Column(name = "Password")
-    private String password;
     
     @NotBlank
-    @Email(message="Email Not Valid")
-    @Column(name = "Email")
-    private String email;
-
-//    @NotBlank(message="Role Not Valid")
-    @ManyToOne(optional = true)
-    @JoinColumn(name="RoleCode", referencedColumnName = "Code")
-    @Fetch(FetchMode.JOIN)
-    private RoleModel role;
-
+    @Column(name = "Name")
+    private String name;
+    
+//    @NotNull
     @Column(name = "ActiveStatus")
     @Enumerated(EnumType.ORDINAL)
     private StatusEnum activeStatus;
