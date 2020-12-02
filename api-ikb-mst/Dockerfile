@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine as build
+FROM adoptopenjdk/openjdk8
 
 ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} app.jar
