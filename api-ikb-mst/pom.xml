@@ -11,6 +11,7 @@
 	</parent>
 	<groupId>com.inkombizz.master</groupId>
 	<artifactId>api-inkombizz-security</artifactId>
+	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>api-inkombizz-security</name>
 	<description>Api Master project for Spring Boot</description>
